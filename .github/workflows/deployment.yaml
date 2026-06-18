@@ -29,6 +29,7 @@ jobs:
               run: npm run test
 
     build:
+        needs: test
         runs-on: ubuntu-latest
         steps:
             - name: Check out code
@@ -38,7 +39,7 @@ jobs:
             - name: Build
               run: npm run build
             - name: upload artifact
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: dist-files
                   path: dist
